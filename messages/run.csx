@@ -5,7 +5,6 @@ using System;
 using System.Net;
 using System.Threading;
 using Newtonsoft.Json;
-
 using Microsoft.Bot.Builder.Azure;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Connector;
@@ -34,7 +33,8 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
             switch (activity.GetActivityType())
             {
                 case ActivityTypes.Message:
-                    await Conversation.SendAsync(activity, () => new BasicLuisDialog());
+                    //await Conversation.SendAsync(activity, () => new BasicLuisDialog());
+                    await Conversation.SendAsync(activity, () => FormDialog.FromForm(CreateAccountForm.BuildForm));
                     break;
                 case ActivityTypes.ConversationUpdate:
                     var client = new ConnectorClient(new Uri(activity.ServiceUrl));
