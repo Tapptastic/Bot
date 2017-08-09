@@ -40,6 +40,24 @@ public class BasicLuisDialog : LuisDialog<object>
     [LuisIntent("DeleteAccount")]
     public async Task DeleteAccount(IDialogContext context, LuisResult result)
     {
-        await context.PostAsync($"You have reached Delete a");
+        await context.PostAsync($"You have reached Delete account selection");
+    }
+
+    [LuisIntent("ResetPassword")]
+    public async Task ResetPassword(IDialogContext context, LuisResult result)
+    {
+        await context.PostAsync($"You have reached Reset Password Selection");
+    }
+
+    [LuisIntent("EnableAccount")]
+    public async Task EnableAccount(IDialogContext context, LuisResult result)
+    {
+        await context.PostAsync($"You have reached the Enable Account Selection");
+    }
+
+    [LuisIntent("DIsbaleAccount")]
+    public async Task DisableAccount(IDialogContext context, LuisResult result)
+    {
+        await context.PostAsync($"You have reached the Disable Account Selection");
     }
 }
